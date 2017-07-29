@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Quiz Cloud</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    
+        <div id="bar"></div>
+
+        <nav id="nav-bar">
+            <div id="nav-bar-container">
+
+                <div id="logo">
+                    <a href="index.html">Quiz Cloud</a>
+                </div>
+
+                <div id="greet-div">Hi, <span id="name"></span></div>
+
+                <div id="sign-in-button" class="button">
+                    <button type="button" onclick="showSignIn()" id="signIn">Sign In</button>
+                </div>
+
+                <div id="sign-up-button" class="button">
+                    <button type="button" onclick="showSignUp()" id="signUp">Sign Up</button>
+                </div>
+
+            </div>
+        </nav>
+
+        <div id="home-page-container">
+            
+            <img src="images/frame.png" alt="Frame" id="frame">
+
+            <h1 id="welcome">Welcome to Quiz Cloud</h1>
+
+            <div id="catag-container">
+
+                <div class="catag-div left-space" id="catag-1">
+                    <img src="images/quiz.png" alt="" class="logos-margin">
+                    <h2 class="catag-heading">Best Quizes</h2>
+                    <h2 id="top-catag-heading">Top Catagories</h2>
+                </div>
+
+                <div class="catag-div left-space">
+                    <img src="images/html.png" alt="Html5" class="logos-margin">
+                    <h2 class="catag-heading">HTML5 Quiz</h2>
+                    <button type="button" onclick="showSignUp()" class="catag-button">Start Now</button>
+                </div>
+
+                <div class="catag-div left-space">
+                    <img src="images/css3.png" alt="Html5" class="logos-margin">
+                    <h2 class="catag-heading">CSS3 Quiz</h2>
+                    <button type="button" class="catag-button">Coming Soon</button>
+                </div>
+
+                <div class="catag-div left-space">
+                    <img src="images/js.png" alt="Html5" class="logos-margin">
+                    <h2 class="catag-heading">JS Quiz</h2>
+                    <button type="button" class="catag-button">Coming Soon</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="sign-up-form-container">
+
+            <div id="form-bar"></div>
+
+            <h3 class="form-heading">Registration Form <span id="sign_in_page"><a onclick="showSignIn()">I want to Sign In</a></span></h3>
+
+            <form method="post" action="Javascript:void(0)">
+
+                <label for="userName">ENTER EMAIL</label>
+                <br>
+                <div class="userInputBox" onfocusout="hideBorderStyle(this); ; checkValidity()" id="getUserName">
+                   <input type="text" name="userName" id="userName" placeholder="Enter Here" class="inputStyle" onfocus="borderStyle('getUserName','userName')" onblur="this.placeholder = 'Enter Here'">
+                </div>
+                <br>
+                <label for="userName">ENTER PASSWORD</label>
+                <br>
+                <div class="userInputBox" onfocusout="hideBorderStyle(this)" id="getKey">
+                    <input type="password" name="key" id="key" placeholder="Enter Here" class="inputStyle" onfocus="borderStyle('getKey','key')" onblur="this.placeholder = 'Enter Here'">
+                </div>
+
+                <button id="sign_up" class="btn-style" onclick="save()">REGISTER</button>
+
+            </form>
+
+        </div>
+
+        <div id="sign-in-form-container">
+
+            <div id="form-bar"></div>
+
+            <h3 class="form-heading">Sign In <span id="sign_in_page"><a onclick="showSignUp()">I want to Register</a></span></h3>
+
+            <form method="post" action="javascript:void(0)">
+
+                <label for="userName">ENTER EMAIL</label>
+                <br>
+                <div class="userInputBox" onfocusout="hideBorderStyle(this)" id="getUserNameS">
+                <input type="text" name="userName" id="userNameS" placeholder="Enter Here" class="inputStyle" onfocus="borderStyle('getUserNameS','userNameS')" onblur="this.placeholder = 'Enter Here'">
+                </div>
+                <br>
+                <label for="userName">ENTER PASSWORD</label>
+                <br>
+                <div class="userInputBox" onfocusout="hideBorderStyle(this)" id="getKeyS">
+                <input type="password" name="key" id="keyS" placeholder="Enter Here" class="inputStyle" onfocus="borderStyle('getKeyS','keyS')" onblur="this.placeholder = 'Enter Here'">
+                </div>
+
+                <button id="sign_in" class="btn-style" onclick="check()">SIGN IN</button>
+
+            </form>
+
+        </div>
+
+        <div id="quiz-page-container">
+            
+            <div id="menu-box">
+                <div id="menu-box-bar"></div>
+
+                <ul id="catag-name-list">
+                    <li id="catag-name" onclick="showListItems()">HTML5
+                         <ul id="catag1-test-list">
+                            <li onclick="testActivation()">Test 1</li>
+                            <li onclick="comingSoon()">Test 2</li>
+                            <li onclick="comingSoon()">Test 3</li>
+                            <li onclick="comingSoon()">Test 4</li>
+                            <li onclick="comingSoon()">Test 5</li>
+                        </ul> 
+                    </li>
+                </ul>
+
+            </div>
+
+            <div id="quiz-body">
+                
+                <div id="quiz-body-header">
+                    <span id="ins-heading">Instructions</span>
+                    <span id="test-timer">Time Left: <span id="min">05</span>:<span id="sec">00</span></span>
+                </div>
+
+                <ol id="inst-list">
+                   <li>Make sure you have a good internet connection.</li> 
+                   <li>Shut down all Instant Messaging tools (Skype, AIM, MSN Messenger) and Email programs as they can conflict with Blackboard.</li> 
+                   <li>Enter the Blackboard course using Chrome. Do not use any other internet browser.</li> 
+                   <li>Maximize your browser window before starting the test. Minimizing the browser window during the exam can prevent the submission of your exam.</li>
+                   <li>When you begin the exam click the link only ONCE to launch the test. Double clicking can lock the test.</li>
+                </ol>
+
+                <div id="coming-soon-logo">
+                    <img src="images/comingsoon.png" alt="Coming Soon" id="coming-soon">
+                </div>
+
+                <div id="coming-soon-logo">
+                    <img src="images/comingsoon.png" alt="Coming Soon" id="coming-soon">
+                </div>
+
+                <div id="activation-div">
+                    <div id="activ-div-header">Enter Test Activation Key</div>
+                    <input type="password" name="fname" id="activation-key" required>
+                    <button type="button" onclick="activate()">Activate</button>
+                </div>
+
+                <form id="test-form" method="post" action="javascipt:void(0)" onsubmit="showTestInst()">
+                    <div class="form-content-align">
+                        <label for="fname">FIRST NAME:</label>
+                        <input type="text" name="fname" id="fname" required>    
+                    </div>
+            
+                    <div class="form-content-align">
+                        <label for="lname">LAST NAME:</label>
+                        <input type="text" name="lname" id="lname" required>    
+                    </div>
+            
+                    <div class="form-content-align">
+                        <label for="edu">EDUCATION:</label>
+                        <input type="text" name="edu" id="edu" required>    
+                    </div>
+            
+                    <div class="form-content-align">
+                        <label for="institute">INSTITUTE:</label>
+                        <input type="text" name="institute" id="institute" required>
+                    </div>
+            
+                    <div id="message">
+                        Note: All Fields are required.
+                    </div>
+                    <button type="submit" id="cont-btn">Continue</button>
+                </form>
+
+                <div id="inst-before-test">
+                    <ol>
+                        <li>There are total 10 questions. All are need to be answered.</li>
+                        <li>This test includes Chapter 1 to 5 of the book.</li>
+                        <li>You have total 5 Minutes to complete the test.</li>
+                        <li>Passing criteria is 70%.</li>
+                        <li>If you failed to complete test in given time then the remaining questions will be considered Wrong.</li>
+                        <li>All questions caries equal Marks</li>
+                        <li>Page refresh is not allowed, otherwise you may loss all the progress.</li>
+                        <li>If any one found doing Cheating, his/her test will be cancelled and will be declared Fail.</li>
+                        <li>On Clicking I Agree your test will be started.</li>
+                    </ol>
+
+                    <button type="button" onclick="startQuiz()">I Agree</button>
+                </div>
+                
+                <div id="test-div">
+                    <div id="question-div">
+                        <span id="questions">Q. <span id="question"></span></span>
+                    </div>
+                    
+                    <div id="options">
+                        <div>
+                            <input type="radio" name="opt" id="r1" class="opt" value=""><label for="opt" id="opt1" class="radioBtn"></label>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="radio" name="opt" id="r2" class="opt" value=""><label for="opt" id="opt2" class="radioBtn"></label>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="radio" name="opt" id="r3" class="opt" value=""><label for="opt" id="opt3" class="radioBtn"></label>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="radio" name="opt" id="r4" class="opt" value=""><label for="opt" id="opt4" class="radioBtn"></label>
+                        </div>
+                    </div>
+
+                    <button type="button" id="next-btn" onclick="decideNextOrFinish()">Next</button>
+                </div>
+
+                <div id="result-div">
+                    <div id="result-div-header">You Scored</div>
+                    <h1 id="score"></h1>
+                    <div id="result-div-footer"><span id="remarks"></span></div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <div>
+                 <ul>
+                    <li><a href="#"><img src="images/web-logos/fb.png" alt="Facebook" title="Facebook"></a></li>
+                    <li><a href="#"><img src="images/web-logos/twitter.png" alt="Twitter" title="Twitter"></a></li>
+                    <li><a href="#"><img src="images/web-logos/linkedin.png" alt="Linkedin" title="Linkedin"></a></li>
+                    <li><a href="#"><img src="images/web-logos/google-plus.png" alt="Google Plus" title="Google Plus"></a></li>
+                </ul> 
+                <p>All rights reserved. Designed by: <span>Abdul Moiz Lakhani</span></p>
+            </div>
+        </footer>
+
+    <script src="js/app.js"></script>
+    </body>
+</html>
