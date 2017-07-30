@@ -706,12 +706,9 @@ function checkAnswer()
     
     for(var l = 0; l < 4; l++)
     {
-        if (questions[i].options[l].option === userAnswer)
+        if (questions[i].options[l].option === userAnswer && questions[i].options[l].correct === true)
         {
-            if (questions[i].options[l].correct === true)
-            {
-                score = score + 10
-            }
+            score = score + 10
         }
     }
 
