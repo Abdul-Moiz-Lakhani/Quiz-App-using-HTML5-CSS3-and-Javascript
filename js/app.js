@@ -36,12 +36,12 @@ function showSignIn()
         document.getElementById('test-timer').style.visibility = "hidden";
         document.getElementById('sign-up-button').style.display = "block";
         document.getElementById('signIn').innerHTML = "Sign In";
-        document.getElementById('ins-heading').style.display = "block";
-        document.getElementById('inst-list').style.display = "block";
+        document.getElementById('ins-heading').style.display = "none";
+        document.getElementById('inst-list').style.display = "none";
         document.getElementById('activation-div').style.display = "none";
         document.getElementById('coming-soon-logo').style.display = "none";
-        document.getElementById("menu-box").style.pointerEvents = "all";
-        document.getElementById("menu-box").style.opacity = 1;
+        document.getElementById("menu-box").style.display = "none";
+        document.getElementById("quiz-body").style.display = "none";
 
         var rad = document.getElementsByName("opt");
         
@@ -56,12 +56,7 @@ function showSignIn()
 
 function resetTimer()
 {
-    clearInterval(timer);    
-    document.getElementById('min').innerHTML = "00";
-    document.getElementById('sec').innerHTML = "00";
-    
-    m = 4;
-    s = 59;
+    clearInterval(timer);
 }
 
 function borderStyle(x,y)
@@ -190,7 +185,7 @@ function userSignIn()
         {
              alert("User Name or Key is Incorrect! \nOR You are not registered \n\nNote: To register click I want to to create new account." );
 
-             document.getElementById('userNameS').value = "";
+             document.getElementById('keyS').focus();
              document.getElementById('keyS').value = "";
         }
     }
@@ -237,10 +232,19 @@ function showTestPanel()
     testDiv.style.display = "none"
 
     document.getElementById('greet-div').style.display = "block";
+    document.getElementById('menu-box').style.display = "block";
+    document.getElementById('quiz-body').style.display = "block";
+    document.getElementById('ins-heading').style.display = "block";
+    document.getElementById('ins-heading').innerHTML = "Instructions";
+    document.getElementById('inst-list').style.display = "block";
     document.getElementById('name').innerHTML = name;
     document.getElementById('sign-up-button').style.display = "none";
+    document.getElementById('inst-before-test').style.display = "none";
+    document.getElementById('test-form').style.display = "none";
     document.getElementById('signIn').innerHTML = "Sign Out";
     document.getElementById('result-div').style.display = "none";
+    document.getElementById("menu-box").style.pointerEvents = "all";
+    document.getElementById("menu-box").style.opacity = 1;
 }
 
 function comingSoon()
@@ -322,11 +326,13 @@ var timer;
 
 function startQuiz()
 {
-    timer = setInterval(startTime, 1000);    
-
-    document.getElementById('ins-heading').innerHTML = "HTML 5 - Test 1";
-    document.getElementById('inst-before-test').style.display = "none";
     document.getElementById('test-timer').style.visibility = "visible";
+    document.getElementById("next-btn").innerHTML = "Next";
+    document.getElementById('ins-heading').innerHTML = "HTML 5 - Test 1";
+
+    startTime();
+
+    document.getElementById('inst-before-test').style.display = "none";
     testDiv.style.display = "block";
     document.getElementById("menu-box").style.pointerEvents = "none";
     document.getElementById("menu-box").style.opacity = 0.4;
@@ -338,26 +344,34 @@ function startQuiz()
     showQuestion();
 }
 
-var m = 4;
-var s = 59;
-
 function startTime()
 {
-    s = checkTime(s);
-    
-    document.getElementById('min').innerHTML = "0"+m;
-    document.getElementById('sec').innerHTML = s;
-    
-    s--;
-    
-    if (s < 0)
+    var m = 4;
+    var s = 59;
+
+    document.getElementById('min').innerHTML = "05";
+    document.getElementById('sec').innerHTML = "00";
+
+    timer = setInterval(startTimer, 1000);
+
+    function startTimer()
     {
-        m--;
-        s = 59;
-        if (m < 0)
+        s = checkTime(s);
+    
+        document.getElementById('min').innerHTML = "0"+m;
+        document.getElementById('sec').innerHTML = s;
+
+        s--;
+
+        if (s < 0)
         {
-            showResult();
-        }
+            m--;
+            s = 59;
+            if (m < 0)
+            {
+                showResult();
+            }
+        }   
     }
 }
 
@@ -645,12 +659,9 @@ function decideNextOrFinish()
 
     else if (getBtn === 'Finish')
     {
+        checkAnswer();
         showResult();
-
         resetTimer();
-
-        m = 4;
-        s = 59;
     }
 }
 
@@ -716,7 +727,7 @@ function showResult()
 {
     resultDiv.style.display = "block";
     testDiv.style.display = "none";
-    document.getElementById('test-timer').style.display = "none";
+    document.getElementById('test-timer').style.visibility = "hidden";
     document.getElementById("menu-box").style.pointerEvents = "all";
     document.getElementById("menu-box").style.opacity = 1;
 
@@ -730,4 +741,6 @@ function showResult()
     {
         document.getElementById('remarks').innerHTML = "You are Fail. Continue Hard Work.";
     }
+
+    resetTimer();
 }
