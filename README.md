@@ -8,7 +8,7 @@ The app consists of 7 major parts:
 1) Registration (using Local Storage)
 2) Authentication (using Local Storage)
 3) Quiz Panel having options for user to choose catagory and the test. (e.g. HTML5, CSS3 etc and test 1, test 2 etc)
-4) Test Avtivation by code. For security purpose. Only the authenticated person knows the test activation code. (e.g. Invigilator)
+4) Test Activation code. For security purpose. Only the authenticated person knows the test activation code. (e.g. Invigilator)
 5) Instructions before test start.
-6) Test in which each question consists of 4 options in which any of the option is compulsory to mark.
+6) Test in which each question consists of 4 options in which any one of the option is compulsory to mark.
 7) Result
