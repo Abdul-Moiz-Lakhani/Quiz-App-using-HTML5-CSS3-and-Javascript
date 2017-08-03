@@ -11,4 +11,4 @@ The app consists of 7 major parts:
 4) Test Activation code. For security purpose. Only the authenticated person knows the test activation code. (e.g. Invigilator)
 5) Instructions before test start.
 6) Test in which each question consists of 4 options in which any one of the option is compulsory to mark.
-7) Result
+7) Test Result
