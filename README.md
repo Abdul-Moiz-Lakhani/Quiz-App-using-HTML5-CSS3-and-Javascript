@@ -2,7 +2,7 @@
 One of my assignment during Saylani Mass Training Program.
 
 This is a simple Quiz App using HTML5, CSS3 and Javascript.
-I have tried to utilize by understandings as per current knowledge in a bestest way. 
+I have tried to utilize my current skills in a bestest way. 
 I also have tried to build an attracting user interface.
 The app consists of 7 major parts:
 1) Registration (using Local Storage)
